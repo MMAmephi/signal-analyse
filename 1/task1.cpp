@@ -59,10 +59,24 @@ int main()
         //cout <<  trunc((-abs(i/F-t/2)+t/2)*(quantization_levels_num - 1)/(quantization_max - quantization_min)) << ", " << signal_val << "\n";
         csv_file << (i / F) << "," << *psv << "\n";
     }*/
-    double t1_start = (rand()%(N_samples/2-int(t*F)))/F;
+    /*double t1_start = (rand()%(N_samples/2-int(t*F)))/F;
     double t1_end = t1_start + t;
-    double r2_start = (rand()%N_samples+)
-    cout<< t1_start <<","<< t1_end <<","<< t2_start <<","<< t2_end <<",";
+    double t2_start = (rand()%(N_samples-int(t*F))+trunc(t1_end*F))/F;
+    double t2_end = t2_start + t;
+    cout<< t1_start <<","<< t1_end <<","<< t2_start <<","<< t2_end <<"\n";
+    for (int i = 0; i < N_samples; ++i)
+    {
+        double signal_val=0;
+        double* psv=&signal_val;
+        if((i/F < t1_end && i/F >= t1_start) || (i/F < t2_end && i/F >= t2_start)){
+            *psv = trunc((A)*(quantization_levels_num - 1)/(quantization_max - quantization_min)) * ((quantization_max - quantization_min)/(quantization_levels_num - 1))+quantization_min;         
+        }
+        else{
+            *psv = 0;
+        }
+        //cout <<  trunc((-abs(i/F-t/2)+t/2)*(quantization_levels_num - 1)/(quantization_max - quantization_min)) << ", " << signal_val << "\n";
+        csv_file << (i / F) << "," << *psv << "\n";
+    }*/
     csv_file.close();
     return 0;
 }
