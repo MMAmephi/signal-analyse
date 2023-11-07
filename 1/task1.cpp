@@ -106,7 +106,7 @@ int main()
     double A=3.; //Амплитуда импульса
     //sine_signal(50, 2.0, 0.5);
     //triangular_signal(50, 2.0, 0.5, 1.0);
-    //rectangular_signal(50, 2.0, 1.0, 1.0, 3.0);
-    random_signal(100, 1.0, 3.0);
+    rectangular_signal(128, 4.0, 3.14/2, 0.5, 3.0);
+    //random_signal(100, 1.0, 3.0);
     return 0;
 }

@@ -1,0 +1,5 @@
+﻿cl : командная строка  warning D9035: использование параметра "Gm" нежелательно, он будет удален в следующих выпусках
+  pngtest.cpp
+C:\Users\merku\Desktop\signal analyse\3\png_lib_VS2017\pngtest\pngtest.cpp(25,22): warning C4244: =: преобразование "double" в "unsigned char", возможна потеря данных
+C:\Users\merku\Desktop\signal analyse\3\png_lib_VS2017\pngtest\pngtest.cpp(127,21): warning C4244: =: преобразование "double" в "unsigned char", возможна потеря данных
+  pngtest.vcxproj -> C:\Users\merku\Desktop\signal analyse\3\png_lib_VS2017\Debug\pngtest.exe
