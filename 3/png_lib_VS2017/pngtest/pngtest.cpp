@@ -21,11 +21,14 @@ void AWGN_png(unsigned char* pOut, unsigned char* pIn, size_t nWidth, size_t nHe
 		for (size_t x = 0; x < nWidth; ++x)
 		{
 			noise = X(gen);
-			if (((*pIn + noise) > 0) && ((*pIn + noise) < 256)) {
-				*pOut++ = X(gen) + *pIn++;
+			if ((*pIn + noise) <= 0) {
+				*pOut++ = 0;
 			}
-			else {
-				*pOut++ = *pIn++;
+			else if ((*pIn + noise) >= 256) {
+				*pOut++ = 255;
+			}
+			else if (((*pIn + noise) > 0) && ((*pIn + noise) < 256)) {
+				*pOut++ = noise + *pIn++;
 			}
 		}
 	}
@@ -215,8 +218,8 @@ int main(int argc, char* argv[])
 	cout << "quartile distance: " << quartile(pulHist, nWidth, nHeight, bins, 0.75) - quartile(pulHist, nWidth, nHeight, bins, 0.25) << "\n";
 
 
-	//AWGN_png(pOutputBits, pInputBits, nWidth, nHeight, s);
-	Impulse_png(pOutputBits, pInputBits, nWidth, nHeight, P);
+	AWGN_png(pOutputBits, pInputBits, nWidth, nHeight, s);
+	//Impulse_png(pOutputBits, pInputBits, nWidth, nHeight, P);
 	
 	//ImageProcessingGray(pOutputBits, pInputBits, nWidth, nHeight); 
 
